@@ -134,6 +134,8 @@
 const express = require('express')
 const app = express()
 
+app.use(express.static('build'))
+
 app.use(express.json())
 
 const cors = require('cors')
@@ -220,7 +222,7 @@ let notes = [
   
 
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PASSENGER_PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
